@@ -48,6 +48,10 @@ module.exports = appInfo => {
     agent: false,
   };
 
+  config.jwt = {
+    secret: 'egg.js',
+  };
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',

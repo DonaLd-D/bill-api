@@ -13,4 +13,4 @@ $ npm start
 $ npm stop
 ```
 
-### egg.js+DBeaver+mysql开发接口
+### egg.js+DBeaver+postman+mysql开发接口
