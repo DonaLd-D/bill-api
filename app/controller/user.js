@@ -83,6 +83,26 @@ class UserController extends Controller {
       }
     }
   }
+
+  async getUserInfo(){
+    const {ctx,app}=this
+    const token=ctx.request.header.authorization
+    const decode=await app.jwt.verify(token,app.config.jwt.secret)
+    const userInfo=await ctx.service.user.getUserByName(decode.username)
+
+    const defaultAvatar='http://s.yezgea02.com/1615973940679/WeChat77d6d2ac093e247c361f0b8a7aeb6c2a.png'
+
+    ctx.body={
+      code:200,
+      msg:'请求成功',
+      data:{
+        id:userInfo.id,
+        username:userInfo.username,
+        signature:userInfo.signature||'',
+        avatar:userInfo.avatar||defaultAvatar
+      }
+    }
+  }
 }
 
 module.exports = UserController;
