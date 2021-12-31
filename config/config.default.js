@@ -52,9 +52,20 @@ module.exports = appInfo => {
     secret: 'egg.js',
   };
 
+  config.cors = {
+    origin: '*', // 允许所有跨域访问
+    credentials: true, // 允许 Cookie 跨域跨域
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+  };
+
+  config.multipart = {
+    mode: 'file'
+  };
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
+    uploadDir: 'app/public/upload'
   };
 
   return {
