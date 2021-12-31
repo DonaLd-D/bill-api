@@ -9,4 +9,5 @@ module.exports = app => {
   router.post('/api/user/register',controller.user.register)
   router.post('/api/user/login',controller.user.login)
   router.get('/api/user/get_userinfo',_jwt,controller.user.getUserInfo)
+  router.post('/api/user/edit_userinfo',_jwt,controller.user.editUserInfo)
 };
